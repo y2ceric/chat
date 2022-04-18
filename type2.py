@@ -31,20 +31,20 @@ def convert(chat, p1, p2):
 			elif s[2] == '圖片':
 				pic_count_p1 += 1
 			else:
-				for m in s[2:]:
-					word_count_p1 += len(m)
+				if len(s) > 3:
+					for m in s[3:]:
+						s[2] += m
+				word_count_p1 += len(s[2])
 		elif name == p2:
 			if s[2] == '貼圖':
 				sticker_count_p2 += 1
 			elif s[2] == '圖片':
 				pic_count_p2 += 1
 			else:
-				for m in s[2:]:
-					word_count_p2 += len(m)
-		# 聊天還原
-		if len(s) > 3:
-			for m in s[3:]:
-				s[2] += m
+				if len(s) > 3:
+					for m in s[3:]:
+						s[2] += m
+				word_count_p2 += len(s[2])
 		new.append([time, name, s[2]])
 	print('...轉換完成!')
 	print(p1, '說了', word_count_p1, '個字')

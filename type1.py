@@ -23,7 +23,7 @@ def convert(chat, p1, p2):
 			continue
 		else:
 			new.append(talker + ': ' + c)
-	print('轉換完成')
+	print('...轉換完成!')
 	return new
 # 存檔
 def write_file(output, address='output.txt'):
@@ -35,7 +35,7 @@ def main():
 	raw = read_file()
 	if raw:
 		output = convert(raw, 'Allen', 'Tom')
-		write_file(output, 'result.txt')
+		write_file(output)
 
 if __name__ == '__main__':
 	main()
